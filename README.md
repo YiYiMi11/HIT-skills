@@ -6,8 +6,7 @@
 [![Dependencies](https://img.shields.io/badge/deps-stdlib%20only-informational.svg)](#依赖)
 
 哈尔滨工业大学（HIT）日常工作流 AI Skill 集。每个 skill 把一项学校工作的规范或流程封装成可复用的 AI 能力，可被 [WorkBuddy](https://www.workbuddy.cn) 等支持 Agent Skills 的工具直接加载。
-
-核心思路：**把「不许编造」做成流程约束，而不是靠模型自觉。** 文献来自知网页面 DOM 并绑定真实原文文件，引用由脚本渲染，对账不过不允许交付。
+内含课程报告作业撰写、真实文献查找、排版规范调整的Skill。
 
 ## 目录
 
