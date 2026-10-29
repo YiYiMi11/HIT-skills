@@ -6,7 +6,9 @@
 [![Dependencies](https://img.shields.io/badge/deps-stdlib%20only-informational.svg)](#依赖)
 
 哈尔滨工业大学（HIT）日常工作流 AI Skill 集。每个 skill 把一项学校工作的规范或流程封装成可复用的 AI 能力，可被 [WorkBuddy](https://www.workbuddy.cn) 等支持 Agent Skills 的工具直接加载。
-内含课程报告作业撰写、真实文献查找、排版规范调整的Skill。
+内含课程报告作业撰写、真实文献查找、排版规范调整的 Skill。
+
+核心思路：**把「不许编造」做成流程约束，而不是靠模型自觉。** 文献来自知网页面 DOM 并绑定真实原文文件，引用由脚本渲染，对账不过不允许交付。
 
 ## 目录
 
@@ -24,9 +26,35 @@
 
 | Skill | 用途 | 触发示例 |
 |---|---|---|
-| [hit-assignment-report](skills/hit-assignment-report/SKILL.md) | 课程报告作业撰写主流程：需求采集 → 按评分点搭结构 → 真实文献支撑 → 去 AI 味 → 引用对账 → 封面与排版 | "写课程报告"、"写实验报告"、"写文献综述" |
+| [hit-assignment-report](skills/hit-assignment-report/SKILL.md) | 课程报告作业撰写主流程：需求采集 → 按评分点搭结构 → 真实文献支撑 → 去 AI 味 → 引用对账 → 封面与排版。含**大一年度项目**立项/中期/结题三类报告骨架 | "写课程报告"、"写实验报告"、"写立项报告"、"大一年度项目" |
 | [hit-cnki-refs](skills/hit-cnki-refs/SKILL.md) | 知网检索 → 批量读摘要 → 筛选候选 → 下载 PDF/CAJ → 校验归档。CDP 驱动本机浏览器，校园网 IP 免登录 | "查文献"、"下载知网文献"、"参考文献" |
-| [hit-standard-word-type](skills/hit-standard-word-type/SKILL.md) | 按 HIT 排版规范排版 Word：字体字号、三线表、图题、公式编号、GB/T 7714-2005 参考文献、打印装订 | "HIT 排版"、"论文格式规范"、"调整报告格式" |
+| [hit-standard-word-type](skills/hit-standard-word-type/SKILL.md) | 按 HIT 排版规范排版 Word：字体字号、三线表、图题、公式编号、GB/T 7714-2005 参考文献、打印装订。含**大一年度项目**专用模板格式（本部 + 深圳） | "HIT 排版"、"论文格式规范"、"调整报告格式" |
+
+### 开工先盘问，不猜着写
+
+`hit-assignment-report` 的第 1 步是**盘问协议**（[`grill-intake.md`](skills/hit-assignment-report/references/grill-intake.md)），照着 grill-me 的做法：一次只问一个问题，每题先给推荐答案，等用户回话再走下一个。顺序固定：
+
+```
+规范归属 → 版本（校区/学院）→ 阶段 → 题目与要求原文 → 评分标准 → 素材 → 文献 → 交付
+```
+
+典型第一句是：**"这次是课程作业，还是学校统一组织的项目报告（大一年度项目 / 大创 / 毕设）？哪个校区、哪个阶段？"** —— 问清才动笔，避免写完才发现校区写错、字数差一倍。
+
+八项都有确定值、没有"待定"才结束盘问；答案落进 `00-intake.md`，复述一遍让用户确认。用户说"你看着办"时按默认值处理，但要写明假设。
+
+### 已封装的学校专用规范
+
+| 规范 | 覆盖内容 | 文件 | 状态 |
+|---|---|---|---|
+| 大一年度项目（写作） | 立项 / 中期 / 结题 × 本部 / 深圳两校区：封面字段差异、成员表列名、字数（本部中期 2000 字 / 深圳中期 1500 字+600 字基本信息）、章节配比、评审关注点、交付清单 | [`annual-project.md`](skills/hit-assignment-report/references/annual-project.md) | ✅ |
+| 大一年度项目（排版） | A4 + 页边距 2cm + 网格 46×43 + 行距 16 磅、封面一号黑体、正文小四宋体、标题层级 `一`→`1.`→`（1）`、结题论文体（二号黑体题名 / 四号楷体作者 / 五号摘要）、8 类参考文献著录示例 | [`annual-project-format.md`](skills/hit-standard-word-type/references/annual-project-format.md) | ✅ |
+| 校级 / 国家级大创 | 立项、中期检查、结题验收 | — | 🚧 待收录 |
+| 本科毕业设计（论文） | 开题、中期、结题、任务书、外文翻译 | — | 🚧 待收录 |
+| 研究生学位论文 | 开题、中期、预答辩、学位论文 | — | 🚧 待收录 |
+
+大一年度项目那两份文件来自基础部下发的立项 / 中期检查 / 结题报告模板（两校区共 6 份），字段、字数、格式已逐条抽成可执行规范，用户不用再翻原件。遇到还没收录的规范，skill 会直说"还没内置"并索要模板，不凭通用经验硬写。
+
+新增一份规范的做法见 [`spec-catalog.md`](skills/hit-assignment-report/references/spec-catalog.md)（抽结构 → 抽格式 → 写两份文件 → 挂路由 → 标注推定值）。
 
 三者可独立使用，串起来即一条完整的课程报告流水线：
 
@@ -165,7 +193,10 @@ HIT-skills/
     │   ├── SKILL.md
     │   ├── references/
     │   │   ├── intake.md                  # 需求采集单
+    │   │   ├── grill-intake.md            # 盘问协议：开工前八问
+    │   │   ├── spec-catalog.md            # 规范库索引 + 新增规范的流程
     │   │   ├── assignment-types.md        # 六类作业骨架
+    │   │   ├── annual-project.md          # 大一年度项目：立项/中期/结题 × 两校区
     │   │   ├── rubric-mapping.md          # 评分点 → 结构映射
     │   │   ├── anti-ai-style.md           # 去 AI 味规则
     │   │   └── cover-spec.md              # 封面规范
@@ -181,7 +212,9 @@ HIT-skills/
     │       └── start_browser.sh           # 以调试模式启动浏览器
     └── hit-standard-word-type/            # HIT 报告排版规范
         ├── SKILL.md
-        ├── references/formatting-spec.md  # 排版规范完整原文
+        ├── references/
+        │   ├── formatting-spec.md         # 通用排版规范完整原文
+        │   └── annual-project-format.md   # 大一年度项目专用模板格式
         ├── scripts/install_fonts.sh       # 内置替代字体一键安装
         └── assets/fonts/                  # 开源替代字体（Noto Serif/Sans SC、Liberation Serif）
 ```
