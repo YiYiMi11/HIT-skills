@@ -37,25 +37,63 @@ hit-cnki-refs（找真文献） → hit-assignment-report（写） → hit-stand
 
 ## 快速开始
 
+### 方式一：把提示词发给 AI，让它自己装（推荐）
+
+不用手动敲命令。把下面整段复粘给你的 Agent（WorkBuddy / Claude Code / Cursor 等），它会自己完成克隆、复制、校验：
+
+```text
+请帮我把 GitHub 仓库 YiYiMi11/HIT-skills 里的 3 个 Agent Skill 装到本机。
+
+步骤：
+1. 克隆到临时目录（只取最新一次提交）：
+   git clone --depth 1 https://github.com/YiYiMi11/HIT-skills.git "${TMPDIR:-/tmp}/hit-skills"
+2. 把 skills/ 下这三个文件夹复制到我的用户级 skill 目录：
+   hit-assignment-report、hit-cnki-refs、hit-standard-word-type
+   - WorkBuddy 用户级目录是 ~/.workbuddy/skills/（不存在就创建）
+   - 若你跑在别的工具里，换成该工具的 skill 目录，并在最后告诉我实际路径
+3. 若目标目录已有旧名 skill（cnki-refs、HIT-standard-word-type），先删除旧目录，避免两套并存。
+4. 校验并报告：
+   - 每个 SKILL.md 的 frontmatter name 与所在文件夹名一致
+   - scripts/*.sh 有可执行权限（必要时 chmod +x）
+   - assets/fonts/ 下 5 个 .ttf 齐全（约 41MB），缺失说明克隆不完整
+5. 删除临时克隆目录。
+6. 输出结果：装成功的 skill 名称、绝对路径、每个 skill 的触发词。
+
+约束：
+- 不要修改 skill 内任何文件。
+- 不要执行 scripts/ 下的脚本：hit-cnki-refs 依赖校园网与本机浏览器，我会自己跑 check。
+- 需要覆盖已有文件前先列出来问我。
+```
+
+只装其中一个也可以，把第 2 步的文件夹名换成你要的那个（常单独装的是 `hit-standard-word-type`）。
+
+嫌上面太长时，这段一行版同样够用：
+
+```text
+把 https://github.com/YiYiMi11/HIT-skills 里 skills/ 下的三个文件夹装到你的用户级 skill 目录
+（WorkBuddy 为 ~/.workbuddy/skills/），保持 frontmatter name 一致、.sh 可执行，装完告诉我路径和触发词。
+```
+
+装完后**新开一个会话**，skill 才会被加载。问一句"你现在有哪些 skill"可以验证。
+
+### 方式二：手动安装
+
 ```bash
 git clone https://github.com/YiYiMi11/HIT-skills.git
 cd HIT-skills
 ```
 
-### WorkBuddy
-
-把目标 skill 文件夹复制到用户级 skill 目录，新会话即可自动触发：
+**WorkBuddy**：复制到用户级 skill 目录，新会话即可自动触发：
 
 ```bash
 mkdir -p ~/.workbuddy/skills
 cp -r skills/hit-cnki-refs skills/hit-assignment-report skills/hit-standard-word-type ~/.workbuddy/skills/
 ```
 
-### 其他 Agent Skills 工具
-
-skill 遵循 [Agent Skills 规范](https://agentskills.io)：每个 skill 是一个含 `SKILL.md`（YAML frontmatter + 指令）的文件夹，可选附 `scripts/`、`references/`、`assets/`。放入对应工具的 skill 目录即可。
+**其他 Agent Skills 工具**：skill 遵循 [Agent Skills 规范](https://agentskills.io)——每个 skill 是含 `SKILL.md`（YAML frontmatter + 指令）的文件夹，可选附 `scripts/`、`references/`、`assets/`。放入对应工具的 skill 目录即可。
 
 > 若之前装过旧名（`cnki-refs`、`HIT-standard-word-type`），先删除旧目录再复制，避免两套并存。
+
 
 ## 典型用法：一份课程报告
 
@@ -159,6 +197,9 @@ HIT-skills/
 | 字体 | 可选；缺字体时用 `install_fonts.sh` 装内置开源替代字体 |
 
 ## 常见问题
+
+**装完 skill 但 AI 不触发。**
+先新开会话（skill 列表在会话启动时加载）。仍不触发就检查：文件夹直接位于 `<skill 目录>/hit-xxx/`，而不是多套了一层；`SKILL.md` 在文件夹根、frontmatter 有 `name` 与 `description`；`name` 与文件夹名一致。
 
 **`cnki.py check` 报连不上浏览器。**
 先 `bash skills/hit-cnki-refs/scripts/start_browser.sh`。该脚本会用独立 user-data-dir 和调试端口启动浏览器，不要用日常浏览器实例。
