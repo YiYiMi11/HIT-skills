@@ -1,1 +1,1 @@
-# awesome-HIT-skills
+# HIT-skills
