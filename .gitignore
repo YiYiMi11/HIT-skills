@@ -1,0 +1,58 @@
+# ---- macOS ----
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# ---- 编辑器 / IDE ----
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+\#*#
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+.venv/
+venv/
+env/
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# ---- WorkBuddy / Agent 本地状态 ----
+# 项目记忆、工作区缓存属于本机状态，不入库
+.workbuddy/
+*.genie
+
+# ---- 运行期产物：作业工作目录 ----
+# hit-cnki-refs 下载的原文、题录、候选清单，以及排版生成的 docx。
+# 都很大且属于一次性数据，不入库。示例产物如确需提交：git add -f <path>
+refs/
+downloads/
+*.pdf
+*.caj
+*.kdh
+*.nh
+00-intake.md
+01-outline.md
+02-shortlist.md
+03-final.md
+04-交付稿.md
+交付-*.docx
+*.docx
+*.doc
+
+# ---- Office / 通用临时文件 ----
+~$*
+*.tmp
+*.log
+*.bak
