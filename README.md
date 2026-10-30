@@ -1,12 +1,30 @@
 # HIT Skills
 
+**给哈工大学生的 AI 报告技能包。** 说清楚要写什么，剩下的交给它：按学院模板搭结构、检索真实知网文献、对账引用、排好版，交出一份能直接提交的 docx。
+
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 [![Python](https://img.shields.io/badge/python-3.8%2B-blue.svg)](#依赖)
 [![Agent Skills](https://img.shields.io/badge/Agent%20Skills-compatible-brightgreen.svg)](https://agentskills.io)
 [![Dependencies](https://img.shields.io/badge/deps-stdlib%20only-informational.svg)](#依赖)
+[![WorkBuddy](https://img.shields.io/badge/WorkBuddy-%E9%82%80%E8%AF%B7%E6%B3%A8%E5%86%8C-1f8f6f.svg)](https://www.workbuddy.cn/events/invite?inviteCode=08foyuwog)
 
-哈尔滨工业大学（HIT）日常工作流 AI Skill 集。每个 skill 把一项学校工作的规范或流程封装成可复用的 AI 能力，可被 [WorkBuddy](https://www.workbuddy.cn) 等支持 Agent Skills 的工具直接加载。
-内含课程报告作业撰写、真实文献查找、排版规范调整的 Skill。
+## 能写什么
+
+| 你要写 | 它会怎么帮你 |
+|---|---|
+| **大一年度项目**：立项 / 中期检查 / 结题 | 先问清**本部还是深圳**、哪个阶段，再按对应模板落地——封面字段、成员表列名、字数（本部中期 2000 字，深圳 1500 字 + 600 字基本信息）、章节配比、专家组意见栏 |
+| **大创**（校级 / 国家级）：立项 / 中期 / 结题 | 与大一年度项目同一套流程；规范正在入库，未收录时会向你索要学院模板，按官方表格写，不凭通用经验硬编 |
+| **毕业设计（论文）**：开题 / 中期 / 结题 | 开题论证、文献综述、任务书、外文翻译；规范正在入库 |
+| **研究生学位论文**：开题 / 中期 / 预答辩 | 同上，按学位类型与学院要求区分 |
+| **课程报告** | 实验报告、调研报告、文献综述、课程设计、读书报告、小论文六类骨架，按评分点反推章节 |
+| **参考文献** | 知网检索 → 批量读摘要 → 你确认 → 下载 PDF/CAJ → md5 校验；正文只写 `[@key]`，编号由脚本渲染 |
+| **Word 排版** | HIT 排版规范 + 大一年度项目专用模板；缺宋体/黑体时自动安装开源替代字体 |
+
+**它不是"帮你写一段话"的写作助手，而是把学校那套规矩做成可执行的流程：**
+
+- **开工先盘问**：校区、阶段、字数、有没有官方模板，问清楚才动笔，不替用户猜
+- **文献不许编**：每条参考文献都绑定知网上真实存在的原文文件，对账不过脚本直接拒绝交付
+- **格式不用操心**：字体字号、行距、文档网格、图表编号、参考文献著录按规范落到 Word 里
 
 <a id="academic-integrity"></a>
 
@@ -25,7 +43,9 @@
 
 ## 目录
 
+- [能写什么](#能写什么)
 - [学术诚信声明](#academic-integrity)
+- [获取 WorkBuddy](#获取-workbuddy)
 - [Skills 一览](#skills-一览)
 - [快速开始](#快速开始)
 - [典型用法：一份课程报告](#典型用法一份课程报告)
@@ -35,6 +55,26 @@
 - [常见问题](#常见问题)
 - [维护约定](#维护约定)
 - [License](#license)
+
+## 获取 WorkBuddy
+
+这些 skill 面向 [WorkBuddy](https://www.workbuddy.cn) 这样的 Agent 客户端编写，装进去就能用。还没有的话，扫码或点邀请链接注册：
+
+<p align="center">
+  <a href="https://www.workbuddy.cn/events/invite?inviteCode=08foyuwog">
+    <img src="assets/workbuddy-qr.png" width="150" alt="WorkBuddy 邀请二维码">
+  </a>
+</p>
+
+**邀请链接**：https://www.workbuddy.cn/events/invite?inviteCode=08foyuwog
+（通过该链接注册可得 2000 积分，活动规则以官方页面为准）
+
+<details>
+<summary>展开邀请海报</summary>
+<p align="center">
+  <img src="assets/workbuddy-invite.png" width="300" alt="WorkBuddy 邀请海报">
+</p>
+</details>
 
 ## Skills 一览
 
@@ -202,6 +242,9 @@ bash skills/hit-standard-word-type/scripts/install_fonts.sh
 HIT-skills/
 ├── README.md
 ├── LICENSE                                # Apache-2.0
+├── assets/                                # 邀请二维码与海报
+│   ├── workbuddy-qr.png
+│   └── workbuddy-invite.png
 └── skills/
     ├── hit-assignment-report/             # 课程报告撰写主流程
     │   ├── SKILL.md
