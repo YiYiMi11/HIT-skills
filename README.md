@@ -10,7 +10,7 @@
 
 <a id="academic-integrity"></a>
 
-> ## 反对学术不端
+> ## 学术诚信声明
 >
 > 本项目只解决三件事：**格式合规、文献真实、表达质量**。不提供、也不为以下行为提供任何帮助：
 >
@@ -25,7 +25,7 @@
 
 ## 目录
 
-- [反对学术不端](#academic-integrity)
+- [学术诚信声明](#academic-integrity)
 - [Skills 一览](#skills-一览)
 - [快速开始](#快速开始)
 - [典型用法：一份课程报告](#典型用法一份课程报告)
@@ -274,4 +274,4 @@ HIT-skills/
 代码与文档：[Apache-2.0](LICENSE)。
 内置字体：Noto Serif SC / Noto Sans SC 为 SIL Open Font License 1.1，Liberation Serif 为 SIL OFL，详见 [`skills/hit-standard-word-type/assets/fonts/`](skills/hit-standard-word-type/assets/fonts/)。
 
-> 本项目仅供个人学习与校内作业流程自动化使用。**禁止用于代写、抄袭、伪造数据或规避学术审查**——详见开头的[反对学术不端](#academic-integrity)。使用知网资源请遵守其服务条款与学校相关规定。
+> 本项目仅供个人学习与校内作业流程自动化使用。**禁止用于代写、抄袭、伪造数据或规避学术审查**——详见开头的[学术诚信声明](#academic-integrity)。使用知网资源请遵守其服务条款与学校相关规定。
