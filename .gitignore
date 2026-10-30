@@ -56,3 +56,8 @@ downloads/
 *.tmp
 *.log
 *.bak
+
+# ---- 例外：学校规范原件要入库 ----
+!templates/**/*.doc
+!templates/**/*.docx
+!templates/**/*.pdf

@@ -122,6 +122,7 @@
 - [能写什么](#能写什么)
 - [Word 排版](#word-format)
 - [报告全景](#report-map)
+- [学校规范原件](#templates)
 - [学术诚信声明](#academic-integrity)
 - [获取 WorkBuddy](#获取-workbuddy)
 - [Skills 一览](#skills-一览)
@@ -315,6 +316,21 @@ bash skills/hit-standard-word-type/scripts/install_fonts.sh
 
 **为什么规范原文单独放 references/。** SKILL.md 只留触发条件、速查表和工作流，细则按需读取，避免每次对话都把上万字规范塞进上下文。
 
+<a id="templates"></a>
+
+## 学校规范原件
+
+学校下发的空白模板与管理办法原件放在 [`templates/`](templates/)，文件格式与版式就是官方原件，可直接复制去填：
+
+| 目录 | 内容 |
+|---|---|
+| [`templates/annual-project/`](templates/annual-project/) | 大一年度项目 6 份：本部（.doc）与深圳（.docx）各 3 份，立项 / 中期检查 / 结题 |
+| [`templates/dachuang/`](templates/dachuang/) | 大创 5 份（三赛道申请书 + 进展报告 + 验收书）+ 管理办法 PDF（校本〔2024〕61 号） |
+
+清单与来源说明见 [`templates/README.md`](templates/README.md)。已核查全部为空白件，不含姓名、学号、手机号。模板可能随年度修订，**正式提交以学院当年下发版本为准**。
+
+skill 里的规范就是从这些原件里逐条抽出来的：原件看版式，规范看要求。
+
 ## 目录结构
 
 ```
@@ -324,6 +340,9 @@ HIT-skills/
 ├── assets/                                # 邀请二维码与海报
 │   ├── workbuddy-qr.png
 │   └── workbuddy-invite.png
+├── templates/                             # 学校下发的空白模板原件
+│   ├── annual-project/                    # 大一年度项目 6 份（本部 .doc / 深圳 .docx）
+│   └── dachuang/                          # 大创 5 份 + 管理办法 PDF
 └── skills/
     ├── hit-assignment-report/             # 课程报告撰写主流程
     │   ├── SKILL.md

@@ -25,6 +25,11 @@
 *.jpg     binary
 *.gif     binary
 
+# 学校模板原件：二进制，不做行尾转换与 diff
+templates/**/*.doc   binary
+templates/**/*.docx  binary
+templates/**/*.pdf   binary
+
 # Word/PDF 产物（.gitignore 已排除，此处防误加）
 *.docx    binary
 *.doc     binary
