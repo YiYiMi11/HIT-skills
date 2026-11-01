@@ -26,6 +26,17 @@
 - **文献不许编**：每条参考文献都绑定知网上真实存在的原文文件，对账不过脚本直接拒绝交付
 - **格式不用操心**：字体字号、行距、文档网格、图表编号、参考文献著录按规范落到 Word 里
 
+**学校下发的原件也一起放在仓库里**，不用回官网翻附件——克隆下来就能直接复制去填：
+
+| 目录 | 份数 | 里面是什么 |
+|---|---|---|
+| [`templates/annual-project/`](templates/annual-project/) | 7 | 大一年度项目：本部、深圳各 3 份（立项 / 中期检查 / 结题）+ 管理规范（试行） |
+| [`templates/dachuang/`](templates/dachuang/) | 6 | 大创：三赛道申请书 + 项目进展报告 + 项目验收书 + 管理办法（校本〔2024〕61 号） |
+| [`templates/undergrad-thesis/`](templates/undergrad-thesis/) | 12 | 本科毕设：写作指南 2、书写范例 2、开题报告、中期报告、过程管理记录表、工作实施细则、撰写规范、原创性声明、封面参考与封面样例 |
+| [`templates/graduate-thesis/`](templates/graduate-thesis/) | 6 | 研究生：学位论文写作指南 2、实践成果写作指南 2、书写范例 2 |
+
+逐份清单、官方来源链接与版本日期见 [学校规范原件](#templates)；写作与排版两套规范都是从这些原件里逐条抽出来的，原件看版式，规范看要求。
+
 <a id="word-format"></a>
 
 ## Word 排版：格式类返工，一次消掉
@@ -195,7 +206,7 @@
 - [能写什么](#能写什么)
 - [Word 排版](#word-format)
 - [报告全景](#report-map)
-- [学校规范原件](#templates)
+- [学校规范原件（templates/ 全部模板）](#templates)
 - [学术诚信声明](#academic-integrity)
 - [获取 WorkBuddy](#获取-workbuddy)
 - [Skills 一览](#skills-一览)
