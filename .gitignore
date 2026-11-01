@@ -29,7 +29,7 @@ env/
 htmlcov/
 
 # ---- WorkBuddy / Agent 本地状态 ----
-# 项目记忆、工作区缓存属于本机状态，不入库
+# 项目记忆、工作区缓存、AGENTS.md 协作约定属于本机私有，一律不入库
 .workbuddy/
 *.genie
 

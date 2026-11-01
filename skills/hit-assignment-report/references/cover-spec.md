@@ -10,13 +10,14 @@
 
 套用老师模板时用 `workbuddy-local-office-edit` 打开模板直接填，**不要重新生成一个**——重新生成必然破坏页边距、字体、行距。
 
-**本文件只管课程报告。** 下面三类各有自己的封面，不要套这里的字段：
+**本文件只管课程报告。** 下面四类各有自己的封面，不要套这里的字段：
 
 | 文档 | 封面/内封依 |
 |---|---|
 | 大一年度项目 | `annual-project.md` 第 3 节 |
 | 校级大创 | `../../hit-standard-word-type/references/dachuang-format.md` 第 1 节 |
-| 研究生学位论文 | `graduate-thesis.md` + `../../hit-standard-word-type/references/graduate-thesis-format.md` 第 3～5 节（封面 + 中英内封，页边距上 3.8 / 下 3.0 / 左右 3.0 cm） |
+| 本科毕业设计（论文） | `undergrad-thesis.md` + `../../hit-standard-word-type/references/undergrad-thesis-format.md` 第 3～4 节（教务处统一蓝色封面 + 中文内封；题头宋体小1号加粗，页边距上 3.8 / 下 3.0 / 左右 3.0 cm） |
+| 研究生学位论文 / 实践成果 | `graduate-thesis.md` + `../../hit-standard-word-type/references/graduate-thesis-format.md` 第 3～5 节（封面 + 中英内封，内封 9 项含副导师/行业导师，页边距上 3.8 / 下 3.0 / 左右 3.0 cm） |
 
 ## 二、HIT 通用课程报告封面
 
