@@ -292,7 +292,7 @@ Keywords: porous graphite, gas bearing, permeability, stability
 
 - 声明正文含一句关键约定：**“本毕业论文（设计）对使用 AI 工具的情况进行了明确标注”**——用没用 AI、用在哪，要在文中如实标注，不是只在声明上签个字
 - 作者签名、导师签名、日期**留空手签**，不要代签、不要贴签名图片
-- 电子版可在教务处网站下载（`templates/undergrad-thesis/HIT本科毕业论文原创性声明和使用权限.doc`）
+- 电子版可在教务处网站下载（`templates/undergrad-thesis/HIT本科毕业论文原创性声明和使用权限.docx`）
 
 ## 16. 附录与装订
 
