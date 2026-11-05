@@ -61,6 +61,15 @@
 
 几份规范的分工是一句话：**学校/学院模板写明的按模板，模板没写清或没提的回落 HIT 通用规范**（三线表线宽、公式编号、插图编排、目录、物理量斜体、装订都在这一档），两边都没写的按通用规范最近条款处理并在交付说明里注明。
 
+**封面默认填原件，不重画。** `templates/` 里有对应文档的原件（毕设开题/中期、大创申请书、大一年度项目、过程管理记录表……）时，流程是「复制原件 → 往封面下划线空位和表格里填内容」，横线长度由原件决定，不会出现五个字段线头参差不齐：
+
+```bash
+python3 skills/hit-standard-word-type/scripts/fill_template.py inspect 交付.docx       # 看槽位号
+python3 skills/hit-standard-word-type/scripts/fill_template.py fill 原件.docx 交付.docx --map 封面.json
+```
+
+槽位语法、宽度换算、文本框封面的处理办法见 `skills/hit-standard-word-type/references/template-fill.md`。
+
 <a id="report-map"></a>
 
 ## 报告全景：HIT 什么时候要你交什么
@@ -501,8 +510,11 @@ HIT-skills/
         │   ├── annual-project-format.md   # 大一年度项目专用模板格式
         │   ├── dachuang-format.md         # 大创模板格式（含与大一年度项目差异）
         │   ├── graduate-thesis-format.md  # 研究生学位论文格式（理工类 / 人文社科类两套编号）
-        │   └── undergrad-thesis-format.md # 本科毕设格式（开题/中期/结题，附版式截图）
-        ├── scripts/install_fonts.sh       # 内置替代字体一键安装
+        │   ├── undergrad-thesis-format.md # 本科毕设格式（开题/中期/结题，附版式截图）
+        │   └── template-fill.md           # 在学校原件里原地填空（封面横线不动）
+        ├── scripts/
+        │   ├── install_fonts.sh           # 内置替代字体一键安装
+        │   └── fill_template.py           # 模板槽位检查 / 批量填充
         └── assets/
             ├── fonts/                     # 开源替代字体（Noto Serif/Sans SC、Liberation Serif）
             └── undergrad-thesis-examples/ # 本科毕设版式截图（封面/内封/目录/三线表/续表）
@@ -512,7 +524,7 @@ HIT-skills/
 
 | 项目 | 要求 |
 |---|---|
-| Python | 3.8+，**仅标准库**，无需 `pip install` |
+| Python | 3.8+；文献检索与对账脚本**仅标准库**，模板填充另需 `pip install python-docx` |
 | 浏览器 | Chrome / Edge / Chromium 任一（`hit-cnki-refs` 需要） |
 | 网络 | 知网需校园网环境，IP 自动识别机构权限，无需账号登录 |
 | 字体 | 可选；缺字体时用 `install_fonts.sh` 装内置开源替代字体 |

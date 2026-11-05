@@ -25,6 +25,8 @@ description: 撰写哈工大（HIT）各类课程报告与校内项目报告—�
 
 最容易被老师抓的两件事——**编造文献**和**AI 味太重**——都靠流程卡死，不靠自我提醒。
 
+**成文载体用原件，不用自建。** 只要 `templates/` 里有这份文档的学校原件（毕设开题/中期、大创申请书、大一年度项目、过程管理记录表、声明页……），就复制原件往里填，封面横线与表格版式一律不动——自绘的封面横线一定长短不一。原件缺失才自建，并在交付说明里注明。对照表与填法见 `../../hit-standard-word-type/references/template-fill.md`。
+
 ## 依赖
 
 | 能力 | 来源 | 用途 |
@@ -72,7 +74,7 @@ description: 撰写哈工大（HIT）各类课程报告与校内项目报告—�
 
 ### 第 2 步 · 按评分点搭骨架
 
-不要套模板，**从给分逻辑反推结构**。方法见 `references/rubric-mapping.md`；毕设按开题/中期/结题检查组的评审点反推，逐条对应到章节。
+结构从给分逻辑反推，**不要套通用模板**；但成文载体（封面、表格、签字栏）必须用学校原件。方法见 `references/rubric-mapping.md`；毕设按开题/中期/结题检查组的评审点反推，逐条对应到章节。
 
 作业类型骨架（章节 + 字数配比）见 `references/assignment-types.md`：
 
@@ -160,7 +162,14 @@ python3 scripts/style_lint.py 04-交付稿.md
 
 `style_lint` 报 FAIL 就回去改，别只改被点名的句子——**改句式节奏，不是替换同义词**。
 
-最后生成 docx：封面按 `references/cover-spec.md`（大一年度项目按 `references/annual-project.md` 第 3 节的封面与成员表字段，本科毕设按 `undergrad-thesis.md` 第 5 节 + 教务处统一封面模板，研究生学位论文按 `graduate-thesis.md` + `graduate-thesis-format.md` 的封面/中英内封字段，都不用通用封面），正文排版调用 `hit-standard-word-type`（大一年度项目让它读 `annual-project-format.md`，大创读 `dachuang-format.md`，本科毕设读 `undergrad-thesis-format.md`，学位论文读 `graduate-thesis-format.md`）。
+最后出 docx，**顺序固定：先查原件，再填内容**：
+
+1. **查 `templates/` 有没有这份文档的学校原件**（对照表见 `../../hit-standard-word-type/references/template-fill.md` 的「对应关系」）。有就复制到工作目录，用 `fill_template.py` 往封面下划线空位、表格单元格、正文占位段里填，封面横线与表格版式一律不动。
+2. **原件缺失**（学院另发、课程报告无模板、研究生开题/中期未内置）时才自建：封面按 `references/cover-spec.md`（大一年度项目按 `references/annual-project.md` 第 3 节，本科毕设按 `undergrad-thesis.md` 第 5 节，研究生学位论文按 `graduate-thesis.md` + `graduate-thesis-format.md`），并在交付说明里写明「无学校原件，按规范生成」。
+3. 正文排版调用 `hit-standard-word-type`（大一年度项目 `annual-project-format.md`，大创 `dachuang-format.md`，本科毕设 `undergrad-thesis-format.md`，学位论文 `graduate-thesis-format.md`）。
+
+**封面禁止自绘**：不要用「下划线的空格」拼横线，不要重画表格。自绘的横线十有八九长短不一，形式审查第一眼就看出问题。
+
 
 ## 交付前自检清单
 
@@ -172,6 +181,7 @@ python3 scripts/style_lint.py 04-交付稿.md
 - [ ] 字数在要求范围内（±10%，不含参考文献）
 - [ ] 图表有编号和标题，正文有“如图X所示”的提示
 - [ ] 封面字段无空缺
+- [ ] 封面来自学校原件（或已注明无原件）；横线右端对齐、文字不压线；表格行列数与原件一致
 - [ ] 没有“综上所述”“首先其次最后”这类套话残留
 - [ ] 大一年度项目：校区字段、阶段章节、字数三项已按 `annual-project.md` 核对
 - [ ] 本科毕设：阶段（开题 8 节 ≥3000 字 / 中期 5 节 / 结题 ≥1.5 万字）与学科门类编号已按 `undergrad-thesis.md` 核对

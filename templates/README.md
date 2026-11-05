@@ -98,7 +98,8 @@
 ## 怎么用
 
 1. 复制对应模板到自己的工作目录，**不要直接改原件**。
-2. 填入字段，保留模板原有的字号、表格、签名位。
+2. 在副本里填字段，保留模板原有的字号、表格、签名位。**封面横线不要自己画**：这些线是带下划线的空格 run，批量填用
+   `python3 ../skills/hit-standard-word-type/scripts/fill_template.py inspect|fill`，脚本会按原宽度补空格，线长不变（用法见 `template-fill.md`）。
 3. 需要按规范调整时，对照 skill 里的说明：
    - 写作要求：`skills/hit-assignment-report/references/annual-project.md` / `dachuang.md` / `undergrad-thesis.md` / `graduate-thesis.md`
    - 排版要求：`skills/hit-standard-word-type/references/annual-project-format.md` / `dachuang-format.md` / `undergrad-thesis-format.md` / `graduate-thesis-format.md`

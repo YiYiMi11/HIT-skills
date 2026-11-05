@@ -11,6 +11,24 @@ description: 按 HIT（哈尔滨工业大学）报告排版规范排版 Word 报
 
 `references/` 下有四份**专用规范**（大一年度项目、大创、研究生学位论文、本科毕业设计）与一份**通用规范**；专用规范优先，通用规范兜底。下面第二张表用于判定该读哪一份。
 
+## 铁律：有原件就填原件，不新建版式
+
+`templates/` 里有对应文档的学校原件时，**默认走「复制原件 → 原地填空」，不新建封面、不重绘表格、不自己敲下划线空格**。原因只有一条：封面横线是带下划线的空格 run，自己画必然长短不一；表格合并单元格重建必然错位。
+
+```bash
+cp "<templates>/本科毕业论文（设计）开题报告.docx" 交付-开题报告.docx
+python3 scripts/fill_template.py inspect 交付-开题报告.docx        # 看槽位号
+python3 scripts/fill_template.py fill 交付-开题报告.docx 交付-开题报告.docx --map 封面.json
+```
+
+槽位语法、宽度换算、文本框封面的处理、校验清单，全在 `references/template-fill.md`。三条硬规则：
+
+1. `templates/` 只读，永远复制到工作目录再改。
+2. 封面字段只填下划线空位（`P{段}#{run}`），按原宽度补空格，横线右端不许移动。
+3. 正文段落格式克隆**占位段**（`after:P25@24`），不许克隆标题的黑体格式。
+
+原件缺失（学院另发、课程报告无模板、研究生开题/中期未内置）时才自建版式，并在交付说明里写明「无学校原件，按规范生成」。
+
 ## 先判断用哪套规范
 
 | 场景 | 依据文件 |
@@ -58,10 +76,11 @@ description: 按 HIT（哈尔滨工业大学）报告排版规范排版 Word 报
 
 ## 工作流程
 
-1. **读取规范**：先读 `references/formatting-spec.md` 获取全部细则；大一年度项目读 `references/annual-project-format.md`，大创读 `references/dachuang-format.md`，研究生学位论文读 `references/graduate-thesis-format.md`，本科毕设读 `references/undergrad-thesis-format.md`，并按其末尾的自检清单核对。
-2. **检查文档现状**：读取目标 .docx，识别各级标题、正文、表格、图、公式的当前格式。
-3. **逐项应用格式**：按速查表与完整规范逐项设置样式（字体、字号、行距、段前段后、对齐、编号）。
-4. **逐项校验**：完成后按以下清单自查：
+1. **先查原件**：`templates/` 里有对应文档就复制原件填充（见上节与 `references/template-fill.md`），跳到第 4 步校验；没有原件才进第 2 步。
+2. **读取规范**：先读 `references/formatting-spec.md` 获取全部细则；大一年度项目读 `references/annual-project-format.md`，大创读 `references/dachuang-format.md`，研究生学位论文读 `references/graduate-thesis-format.md`，本科毕设读 `references/undergrad-thesis-format.md`，并按其末尾的自检清单核对。
+3. **检查文档现状**：读取目标 .docx，识别各级标题、正文、表格、图、公式的当前格式。
+4. **逐项应用格式**：按速查表与完整规范逐项设置样式（字体、字号、行距、段前段后、对齐、编号）。
+5. **逐项校验**：完成后按以下清单自查：
    - [ ] 各级标题字体字号行距正确，无孤行（题序及标题不得置于页面最后一行）
    - [ ] 中文宋体/标题黑体，数字英文 Times New Roman
    - [ ] 表格为三线表、无竖线，表题在表上且无标点，表序按章编排
@@ -71,6 +90,7 @@ description: 按 HIT（哈尔滨工业大学）报告排版规范排版 Word 报
    - [ ] 物理量符号斜体、单位正体
    - [ ] 研究生论文另加两组：题注按层次（硕士中文 / 博士双语，图题在下、表题在上）；页眉按层次（博士奇偶不同、硕士单面固定）
    - [ ] 本科毕设另加两组：图表**只用中文题注**；页眉固定“哈尔滨工业大学本科毕业论文（设计）”、不分奇偶页、带粗细双线
+   - [ ] 用模板填充的：封面各字段横线右端在同一竖直位置、文字不压线不折行；表格行列数与原件一致；正文未继承标题的黑体格式
 
 ## 字体检查与回退
 
@@ -92,3 +112,5 @@ description: 按 HIT（哈尔滨工业大学）报告排版规范排版 Word 报
 ## 实现方式
 
 在 WorkBuddy 环境中，Word 文件的读写应通过本地 Office 编辑能力（如 workbuddy-local-office-edit / editor_sdk）完成；在其他环境中可用 python-docx 设置样式。设置段前/段后时注意单位换算：磅值直接用 Pt，“0.5行”用行距单位，多倍行距 1.25 通过 line_spacing 实现。
+
+模板填充用 `scripts/fill_template.py`（python-docx 实现，只写文字不动版式），文本框封面用 editor_sdk 改 `w:txbxContent` 里的文字。

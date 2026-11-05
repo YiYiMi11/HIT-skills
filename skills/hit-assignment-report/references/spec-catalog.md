@@ -10,6 +10,7 @@
 | 本科毕业设计（论文）开题 / 中期 / 结题 | 毕设、毕业论文、开题报告、开题检查、中期检查、结题、任务书、外文翻译、答辩、理工类、人文社科类 | [`undergrad-thesis.md`](undergrad-thesis.md)（写作）+ [`../../hit-standard-word-type/references/undergrad-thesis-format.md`](../../hit-standard-word-type/references/undergrad-thesis-format.md)（排版） | 已收录 |
 | 研究生学位论文 / 实践成果（硕士 / 博士） | 学位论文、硕士论文、博士论文、实践成果、案例研究、调研报告、盲审、答辩、学术学位、专业学位、理工类、人文社科类 | [`graduate-thesis.md`](graduate-thesis.md)（写作）+ [`../../hit-standard-word-type/references/graduate-thesis-format.md`](../../hit-standard-word-type/references/graduate-thesis-format.md)（排版） | 已收录 |
 | 研究生开题 / 中期检查 / 预答辩 | 开题报告、中期检查、预答辩、开题答辩 | — | 待收录（范例未覆盖，要学院模板） |
+| 官方原件（模板）清单 | 模板、原件、制式表格、封面、签字栏、在原件上填 | [`../../../templates/README.md`](../../../templates/README.md) + [`../../hit-standard-word-type/references/template-fill.md`](../../hit-standard-word-type/references/template-fill.md) | 已收录 |
 
 ## 判定规则
 
@@ -21,6 +22,7 @@
 6. **同一活动有多个分支的，必须先问分支再动笔**：大创要先问赛道（创新训练/创业训练/创业实践）与阶段（申请书/中期/进展报告/验收书）；大一年度项目要先问校区与阶段；本科毕设要先问阶段（开题/中期/结题）与学科门类；研究生学位论文要先问学位层次（硕/博）、学位类型（学术/专业）与学科门类（理工/人文社科）。分支问错，模板、字数、封面字段、层次编号全错。
 7. **本科毕设与研究生学位论文是两套规范，不要混用**：本科图表单语题注、无英文内封、页眉不分奇偶页；研究生双语题注、中英内封、页眉奇偶页不同。用户说“写论文”时先问一句“本科毕设还是研究生学位论文”。
 8. **同一活动的不同阶段可能有的收录、有的没收录**：本科毕设三个环节都已收录；研究生学位论文本体已收录，但开题/中期/预答辩没有——用户说“研究生论文”时先问是哪一种，别默认按学位论文写。
+9. **先查原件再动手**：`templates/` 里有这份文档的学校原件，一律复制原件填内容（`template-fill.md`），不新建封面、不重绘表格。原件缺失才自建，并在交付说明里写明。
 
 ## 新增一份规范时怎么做
 
