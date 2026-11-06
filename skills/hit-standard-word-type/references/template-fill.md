@@ -11,6 +11,8 @@
 
 所以：**只要 `templates/` 里有对应原件，就复制原件填空，不新建封面、不重绘表格。** 只有在原件缺失（如学院另发、课程报告无模板）时才走自建流程。
 
+> 路径说明：仓库里 `templates/` 在根目录；skill 装到 `~/.workbuddy/skills/` 后，由仓库根的 `install.sh` 在 `hit-standard-word-type/` 内建软链 `templates → <仓库>/templates`，所以下文所有 `templates/...` 相对路径两种场景都成立。找不到时先跑 `bash install.sh` 补软链。
+
 ## 对应关系
 
 | 要写的文档 | 原件 | 填充重点 |

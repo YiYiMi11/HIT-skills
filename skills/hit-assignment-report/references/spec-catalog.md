@@ -10,7 +10,7 @@
 | 本科毕业设计（论文）开题 / 中期 / 结题 | 毕设、毕业论文、开题报告、开题检查、中期检查、结题、任务书、外文翻译、答辩、理工类、人文社科类 | [`undergrad-thesis.md`](undergrad-thesis.md)（写作）+ [`../../hit-standard-word-type/references/undergrad-thesis-format.md`](../../hit-standard-word-type/references/undergrad-thesis-format.md)（排版） | 已收录 |
 | 研究生学位论文 / 实践成果（硕士 / 博士） | 学位论文、硕士论文、博士论文、实践成果、案例研究、调研报告、盲审、答辩、学术学位、专业学位、理工类、人文社科类 | [`graduate-thesis.md`](graduate-thesis.md)（写作）+ [`../../hit-standard-word-type/references/graduate-thesis-format.md`](../../hit-standard-word-type/references/graduate-thesis-format.md)（排版） | 已收录 |
 | 研究生开题 / 中期检查 / 预答辩 | 开题报告、中期检查、预答辩、开题答辩 | — | 待收录（范例未覆盖，要学院模板） |
-| 官方原件（模板）清单 | 模板、原件、制式表格、封面、签字栏、在原件上填 | [`../../../templates/README.md`](../../../templates/README.md) + [`../../hit-standard-word-type/references/template-fill.md`](../../hit-standard-word-type/references/template-fill.md) | 已收录 |
+| 官方原件（模板）清单 | 模板、原件、制式表格、封面、签字栏、在原件上填 | 仓库根 `templates/README.md`（安装后为 `~/.workbuddy/skills/hit-standard-word-type/templates/README.md`）+ [`../../hit-standard-word-type/references/template-fill.md`](../../hit-standard-word-type/references/template-fill.md) | 已收录 |
 
 ## 判定规则
 

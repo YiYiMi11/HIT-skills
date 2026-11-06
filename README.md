@@ -340,11 +340,22 @@ git clone https://github.com/YiYiMi11/HIT-skills.git
 cd HIT-skills
 ```
 
-**WorkBuddy**：复制到用户级 skill 目录，新会话即可自动触发：
+**WorkBuddy**：一条命令装好三个 skill（含模板软链、执行位、依赖检查）：
+
+```bash
+bash install.sh            # 装到 ~/.workbuddy/skills
+bash install.sh --fonts    # 顺带装内置的宋体/黑体/Times 替代字体
+```
+
+脚本做的事：`rsync` 三个 skill 到 `~/.workbuddy/skills/` → 在 `hit-standard-word-type/` 里建 `templates` 软链（这样「复制原件填空」找得到学校原件）→ 补脚本执行位 → 检查 `python-docx` 与中文字体。新会话生效。
+
+手抄版（不跑脚本时）：
 
 ```bash
 mkdir -p ~/.workbuddy/skills
 cp -r skills/hit-cnki-refs skills/hit-assignment-report skills/hit-standard-word-type ~/.workbuddy/skills/
+ln -sfn "$PWD/templates" ~/.workbuddy/skills/hit-standard-word-type/templates
+pip3 install python-docx
 ```
 
 **其他 Agent Skills 工具**：skill 遵循 [Agent Skills 规范](https://agentskills.io)——每个 skill 是含 `SKILL.md`（YAML frontmatter + 指令）的文件夹，可选附 `scripts/`、`references/`、`assets/`。放入对应工具的 skill 目录即可。
@@ -469,6 +480,7 @@ skill 里的规范就是从这些原件里逐条抽出来的：原件看版式�
 ```
 HIT-skills/
 ├── README.md
+├── install.sh                             # 一键安装到 WorkBuddy（软链模板 + 依赖检查）
 ├── LICENSE                                # Apache-2.0
 ├── assets/                                # 邀请二维码与海报
 │   ├── workbuddy-qr.png
