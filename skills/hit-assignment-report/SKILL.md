@@ -166,7 +166,7 @@ python3 scripts/style_lint.py 04-交付稿.md
 
 1. **查 `templates/` 有没有这份文档的学校原件**（对照表见 `../../hit-standard-word-type/references/template-fill.md` 的「对应关系」）。有就复制到工作目录，用 `fill_template.py` 往封面下划线空位、表格单元格、正文占位段里填，封面横线与表格版式一律不动。
 2. **原件缺失**（学院另发、课程报告无模板、研究生开题/中期未内置）时才自建：封面按 `references/cover-spec.md`（大一年度项目按 `references/annual-project.md` 第 3 节，本科毕设按 `undergrad-thesis.md` 第 5 节，研究生学位论文按 `graduate-thesis.md` + `graduate-thesis-format.md`），并在交付说明里写明「无学校原件，按规范生成」。
-3. 正文排版调用 `hit-standard-word-type`（大一年度项目 `annual-project-format.md`，大创 `dachuang-format.md`，本科毕设 `undergrad-thesis-format.md`，学位论文 `graduate-thesis-format.md`）。
+3. 正文排版调用 `hit-standard-word-type`（大一年度项目 `annual-project-format.md`，大创 `dachuang-format.md`，本科毕设 `undergrad-thesis-format.md`，学位论文 `graduate-thesis-format.md`）。**排版前先把它的开工五问答完**（`../../hit-standard-word-type/references/intake.md`：文档类型、分支、版式来源、改动范围、交付文件名），四项复述确认后再动手——不许把文件丢过去就排。
 
 **封面禁止自绘**：不要用「下划线的空格」拼横线，不要重画表格。自绘的横线十有八九长短不一，形式审查第一眼就看出问题。
 
